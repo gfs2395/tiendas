@@ -1,0 +1,92 @@
+$bgColor : #68BAA7;
+$textColor : #6C648B;
+
+i {
+    animation: miSpinner 2s infinite linear;
+    size: 9px;
+  }
+  
+  @keyframes miSpinner {
+    0% {
+        transform : rotate(0deg)
+    }
+    100% {
+        transform   : rotate(360deg)
+    }
+  }
+
+  p{
+      position: absolute;
+      margin-left: 45px;
+      top: 29px;
+      font: 800 40px system-ui;
+
+  }
+body{background-color: $bgColor;}
+
+
+
+p::before{
+    font: 800 40px system-ui;
+    content: counter(count);
+    animation: counter 5s linear infinite; /* Si añado alternate, se hace regresivamente a su par, una vez llegue al tope*/
+    counter-reset: count;
+  }
+  
+  @keyframes counter {
+    0% {
+      counter-increment: count 0;
+    }
+    10% {
+      counter-increment: count 10;
+    }
+    20% {
+      counter-increment: count 20;
+    }
+    30% {
+      counter-increment: count 30;
+    }
+    40% {
+      counter-increment: count 40;
+    }
+    50% {
+      counter-increment: count 50;
+    }
+    60% {
+      counter-increment: count 60;
+    }
+    70% {
+      counter-increment: count 70;
+    }
+    80% {
+      counter-increment: count 80;
+    }
+    90% {
+      counter-increment: count 90;
+    }
+    100% {
+      counter-increment: count 100;
+    }
+  }
+  
+  /*
+  
+  Recursos utilizados como apoyo
+  https://css-tricks.com/animating-number-counters/
+  https://www.w3schools.com/cssref/css3_pr_animation-direction.asp
+  https://css-tricks.com/almanac/properties/a/animation/
+  
+  */
+
+
+  .container, .opciones{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  button{
+      margin : 2%;
+  }
+.titulo{
+  align-self: center;
+}
