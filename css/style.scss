@@ -1,75 +1,53 @@
-$bgColor : #68BAA7;
-$textColor : #6C648B;
+$paleGold : #C0B283;
+$Silk : #Dcd0c0;
+$Paper : #F4F4F4;
+$Charcoal : #373737;
+
+$selector : ".formAddx";
+
+@mixin formulario() {}
 
 i {
-    animation: miSpinner 2s infinite linear;
-    size: 9px;
-  }
-  
-  @keyframes miSpinner {
-    0% {
-        transform : rotate(0deg)
-    }
-    100% {
-        transform   : rotate(360deg)
-    }
+  animation: miSpinner 2s infinite linear;
+  size: 9px;
+}
+
+@keyframes miSpinner {
+  0% {
+    transform: rotate(0deg)
   }
 
-  p{
-      position: absolute;
-      margin-left: 45px;
-      top: 29px;
-      font: 800 40px system-ui;
-
+  100% {
+    transform: rotate(360deg)
   }
-body{background-color: $bgColor;}
+}
+
+h1{
+  color: $Charcoal;
+}
+p {
+  position: absolute;
+  margin-left: 45px;
+  top: 29px;
+  font: 800 40px system-ui;
+
+}
+
+body {
+  background-color: $paleGold;
+}
 
 
 
-p::before{
-    font: 800 40px system-ui;
-    content: counter(count);
-    animation: counter 5s linear infinite; /* Si añado alternate, se hace regresivamente a su par, una vez llegue al tope*/
-    counter-reset: count;
-  }
-  
-  @keyframes counter {
-    0% {
-      counter-increment: count 0;
-    }
-    10% {
-      counter-increment: count 10;
-    }
-    20% {
-      counter-increment: count 20;
-    }
-    30% {
-      counter-increment: count 30;
-    }
-    40% {
-      counter-increment: count 40;
-    }
-    50% {
-      counter-increment: count 50;
-    }
-    60% {
-      counter-increment: count 60;
-    }
-    70% {
-      counter-increment: count 70;
-    }
-    80% {
-      counter-increment: count 80;
-    }
-    90% {
-      counter-increment: count 90;
-    }
-    100% {
-      counter-increment: count 100;
-    }
-  }
-  
-  /*
+p::before {
+  font: 800 40px system-ui;
+  content: counter(count);
+  animation: counter 5s linear infinite;
+  /* Si añado alternate, se hace regresivamente a su par, una vez llegue al tope*/
+  counter-reset: count;
+}
+
+/*
   
   Recursos utilizados como apoyo
   https://css-tricks.com/animating-number-counters/
@@ -79,14 +57,124 @@ p::before{
   */
 
 
-  .container, .opciones{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+.container,
+.opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  margin: 2%;
+}
+
+.titulo {
+  align-self: center;
+}
+
+/*Pintar dinamicamente siempre con js?si quiero volver para atras que hago un reload?*/
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $Charcoal ;
+  color: $Silk;
+  border: 2px solid $Paper;
+  margin: 20px;
+  width: 100%;
+}
+
+
+.boxContainer {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: $Silk;
+}
+
+.text {
+  color: $Silk;
+}
+
+.desplegar {
+  border: 2px solid $paleGold;
+}
+
+input {
+  height: 0px;
+}
+
+/*.containAñadir button:hover {
+  button::before{
+    background-color: chartreuse;
+  }
+  +form {
+    height: 160px;
+    background-color: red;
+    -webkit-transition: height 0.4s ease-in-out;
+    transition: height 0.10s ease-in-out;
+
+  }
+  
+}*/
+
+span {
+  font-size: 32px;
+}
+
+.containAñadir {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  height: 0;
+  line-height: 0;
+  width: 90%;
+  -webkit-transition: height 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out;
+  background-color: $Silk;
+  button{
+    width: 10%;
+    align-self: flex-start;
+  }
+
+}
+
+form {
+
+  input {
+    width: 20%;
+    height: 20%;
+    margin: 10px;
+  }
+  label{
+    width: 20%;
+    margin: 10px;
   }
   button{
-      margin : 2%;
+    align-self: flex-end;
   }
-.titulo{
-  align-self: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: $Silk;
+  -webkit-transition: height 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out;
+  overflow: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.busqueda{
+align-self: center;  
+
+
+  
 }

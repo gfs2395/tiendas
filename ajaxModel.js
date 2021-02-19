@@ -1,0 +1,1 @@
+//Idea para hacer de cada metodo de consulta un objeto

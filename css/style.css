@@ -9,6 +9,9 @@ i {
   100% {
     transform: rotate(360deg); } }
 
+h1 {
+  color: #373737; }
+
 p {
   position: absolute;
   margin-left: 45px;
@@ -16,7 +19,7 @@ p {
   font: 800 40px system-ui; }
 
 body {
-  background-color: #68BAA7; }
+  background-color: #C0B283; }
 
 p::before {
   font: 800 40px system-ui;
@@ -24,30 +27,6 @@ p::before {
   animation: counter 5s linear infinite;
   /* Si añado alternate, se hace regresivamente a su par, una vez llegue al tope*/
   counter-reset: count; }
-
-@keyframes counter {
-  0% {
-    counter-increment: count 0; }
-  10% {
-    counter-increment: count 10; }
-  20% {
-    counter-increment: count 20; }
-  30% {
-    counter-increment: count 30; }
-  40% {
-    counter-increment: count 40; }
-  50% {
-    counter-increment: count 50; }
-  60% {
-    counter-increment: count 60; }
-  70% {
-    counter-increment: count 70; }
-  80% {
-    counter-increment: count 80; }
-  90% {
-    counter-increment: count 90; }
-  100% {
-    counter-increment: count 100; } }
 
 /*
   
@@ -57,13 +36,100 @@ p::before {
   https://css-tricks.com/almanac/properties/a/animation/
   
   */
-.container, .opciones {
+.container,
+.opciones {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap; }
 
 button {
   margin: 2%; }
 
 .titulo {
+  align-self: center; }
+
+/*Pintar dinamicamente siempre con js?si quiero volver para atras que hago un reload?*/
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #373737;
+  color: #Dcd0c0;
+  border: 2px solid #F4F4F4;
+  margin: 20px;
+  width: 100%; }
+
+.boxContainer {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #Dcd0c0; }
+
+.text {
+  color: #Dcd0c0; }
+
+.desplegar {
+  border: 2px solid #C0B283; }
+
+input {
+  height: 0px; }
+
+/*.containAñadir button:hover {
+  button::before{
+    background-color: chartreuse;
+  }
+  +form {
+    height: 160px;
+    background-color: red;
+    -webkit-transition: height 0.4s ease-in-out;
+    transition: height 0.10s ease-in-out;
+
+  }
+  
+}*/
+span {
+  font-size: 32px; }
+
+.containAñadir {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  height: 0;
+  line-height: 0;
+  width: 90%;
+  -webkit-transition: height 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out;
+  background-color: #Dcd0c0; }
+  .containAñadir button {
+    width: 10%;
+    align-self: flex-start; }
+
+form input {
+  width: 20%;
+  height: 20%;
+  margin: 10px; }
+
+form label {
+  width: 20%;
+  margin: 10px; }
+
+form button {
+  align-self: flex-end; }
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #Dcd0c0;
+  -webkit-transition: height 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out;
+  overflow: hidden;
+  height: 0;
+  line-height: 0; }
+
+.busqueda {
   align-self: center; }

@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiendas chingonas</title>
     <link href="./css/style.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <script defer type="module" src="./script.js"></script>
 </head>
+
 <body>
-    
+
     <div class="container">
-      <i class="fas fa-spinner fa-10x"></i>
-      <div class="porcentaje"><p>%</p></div>
-         
-      <div class="titulo">
-          <h1>Tiendas Guillermo</h1>
-      </div>
-      <div class="opciones">
-          <h2>Por favor,elija un método para realizar la petición AJAX</h2>
+
+        <div class="titulo">
+            <h1>Tiendas Guillermo</h1>
+        </div>
+        <div class="containAñadir">
+            <form>
+
+                    <label for="nombreTienda">Nombre</label>
+                    <input id="nombreTienda" type="text" required>
+                    <label for="direccion">Direccion</label>
+                    <input id="direccion" type="text" required>
+                    <label for="localidad">localidad</label>
+                    <input id="localidad" type="text" required>
+                    <label for="telefono">Telefono</label>
+                    <input id="telefono" type="text" name="telefono" required>
+                <button id="nuevaTienda" class="nuevaTienda" type="submit">Añadir tienda!</button>
+
+
+
+            </form>
+        </div>
+        <div class="opciones">
+            <h2>Por favor,elija un método para realizar la petición AJAX</h2>
             <button>XHR</button>
             <button>Fetch</button>
             <button>jQuery</button>
+
         </div>
-  </div>
+    </div>
 </body>
+
 </html>
