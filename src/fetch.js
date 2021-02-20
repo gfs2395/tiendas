@@ -3,9 +3,9 @@ import * as pintar from './diseño.js';
 import * as formulario from './formulario.js'
 
 function getFetch(contenedorPadre, filtro) {
+    filtro ? null : tienda.esperarTiendas(contenedorPadre);
     fetch("https://webapp-210130211157.azurewebsites.net/webresources/mitienda/")
         .then(response => {
-            filtro ? null : tienda.esperarTiendas(contenedorPadre);
             if (response.ok)
                 return response.text();
         })
@@ -14,18 +14,16 @@ function getFetch(contenedorPadre, filtro) {
             let contenido;
             /** Procesar los datos **/
             if (filtro) {
-                console.log("aaa",document.getElementsByClassName("busqueda")[0].getElementsByTagName("input")[0])
                 contenido = tienda.filtrar(data, document.getElementsByClassName("busquedaInput")[0].value)
-                 tienda.mostrarTiendas(contenido, document.getElementsByClassName('container')[0], false)
-                console.log("contenido", contenido)
+                tienda.mostrarTiendas(contenido, document.getElementsByClassName('container')[0], false)
             } else {
                 pintar.pintarBotonesExtra(), tienda.mostrarTiendas(data, document.getElementsByClassName('container')[0], true);
                 
             }
             formulario.eventosUsuarioIconos();
             formulario.manejarFormulario();
-            formulario.eventosUsuarioIconos();
             document.getElementsByClassName("containAñadir")[0].style.height = "50px";
+            formulario.eventosUsuarioIconos();
 
         });
 
@@ -33,6 +31,8 @@ function getFetch(contenedorPadre, filtro) {
 
 function setFetch(data) {
     mode: 'no-cors',
+    document.getElementById("nuevaTienda").appendChild(pintar.crearLoader(true))
+    document.getElementById("nuevaTienda").disabled = true
 
     fetch("https://webapp-210130211157.azurewebsites.net/webresources/mitienda/", {
         method: 'POST', // or 'PUT'
@@ -43,11 +43,11 @@ function setFetch(data) {
 
 
     }).then(res => {
-        document.getElementById("nuevaTienda").appendChild(pintar.crearLoader(true))
+        
 
     })
     .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+    .then(response =>formulario.exitoAñadir(response));
 }
 
 export {

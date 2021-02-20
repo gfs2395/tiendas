@@ -21,8 +21,7 @@ if(primeraRecarga){
 }else{
   limpiarTiendas(document.getElementsByClassName("box"))
   jsonTiendas = tiendas;
-  console.log("desdetiends"+jsonTiendas)
-  console.log("2",typeof(jsonTiendas))
+
 }
 
 

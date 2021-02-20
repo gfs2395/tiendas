@@ -46,10 +46,10 @@ function pintarBotonAñadir(){
  function getHeight(actual,cual) {
   let futuro =0 ;
   if(cual=='padre'){
-    actual == "50px" ? futuro = 550 : futuro=50;
+    actual == "50px" ? futuro = 850 : futuro=50;
 
   }if(cual=='hijo'){
-    actual == "560px" ? futuro = 0 : futuro = 560;
+    actual == "760px" ? futuro = 0 : futuro = 760;
 
   }
   return futuro;

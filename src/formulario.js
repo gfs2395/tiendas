@@ -76,9 +76,16 @@ function limpiarTiendas(datae) {
     }
 }
 
+function exitoAñadir(response){
+    console.log('Success:', response);
+    pintar.limpiarPantalla(document.getElementById("nuevaTienda"),document.getElementsByClassName("loader")[0])
+    document.getElementById("nuevaTienda").disabled = false;
+}
+
 export {
     obtenerFormulario,
     manejarFormulario,
     eventosUsuarioIconos,
-    limpiarTiendas
+    limpiarTiendas,
+    exitoAñadir
 }
