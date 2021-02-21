@@ -5,7 +5,7 @@ import {
 import * as pintar from './diseño.js'
 import * as tienda from './tiendas.js'
 
-function obtenerFormulario() {
+function obtenerFormulario(x,url) {
     let enviar = true;
     let pos = 0;
     let datos = [document.getElementById("nombreTienda"), document.getElementById("direccion"), document.getElementById("localidad"), document.getElementById("telefono")]
@@ -17,13 +17,13 @@ function obtenerFormulario() {
     })
     datos.splice(0, 0, `idTienda:42`)
     enviar == true ? console.log("Enviamos") : console.log("no enviamos")
-    setFetch({
+    x({
         idTienda: 60,
         nombreTienda: datos[1],
         direccion: datos[2],
         localidad: datos[3],
         telefono: datos[4]
-    });
+    },url);
 
 }
 
@@ -58,16 +58,12 @@ function manejarFormulario() {
 }
 
 function eventosUsuarioIconos(accion) {
-    document.getElementsByTagName("icon")[0].addEventListener("click", (e) => {
-        accion();
-    })
+    document.getElementsByTagName("icon")[0].addEventListener("click", accion)
     
 
 }
 
 function limpiarTiendas(datae) {
-    console.log(datae.length)
-    console.log(datae)
     if(datae.length>0){
         for (let i = datae.length - 1; i => 1; i--) {
             document.getElementsByClassName("boxContainer")[0].removeChild(datae[i])
@@ -84,7 +80,22 @@ function exitoAñadir(response){
     document.getElementById("nuevaTienda").disabled = false;
 }
 
-
+function añadirMetodoInsercion(func){
+    document.getElementById("nuevaTienda").addEventListener("click",func)
+}
+function cancelarBusqueda(vuelta,data){
+    if(vuelta){
+        let cancelar = pintar.pintarBotonCancelar(data);
+        cancelar.addEventListener("click",function x(){(tienda.mostrarTiendas(data,document.getElementsByClassName("containAñadir")[0],true),pintar.limpiarPantalla(document.getElementsByClassName("container")[0],document.getElementsByClassName("boxContainer")[1],        pintar.limpiarPantalla(document.getElementsByClassName("containAñadir")[0],document.getElementById("cancelar"))
+        )
+        )})
+        document.getElementsByClassName("containAñadir")[0].appendChild(cancelar)
+        
+    }else{
+        pintar.limpiarPantalla(document.getElementsByClassName("containAñadir")[0],document.getElementById("cancelar"))
+        pintar.limpiarPantalla(document.getElementsByClassName("container")[0],document.getElementsByClassName("boxContainer")[1])
+    }
+}
 
 export {
     obtenerFormulario,
@@ -92,4 +103,6 @@ export {
     eventosUsuarioIconos,
     limpiarTiendas,
     exitoAñadir,
+    añadirMetodoInsercion,
+    cancelarBusqueda
 }

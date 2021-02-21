@@ -1,5 +1,7 @@
+import * as tienda from './tiendas.js'
+ 
  function crearLoader(button) {
-   let loader = pintarPantalla('div', '%', 'loader');
+   let loader = pintarPantalla('div', '', 'loader');
    let icono = pintarPantalla('i', '', 'fas');
    !button ? icono.classList.add("fa-spinner", "fa-10x"):icono.classList.add("fa-spinner", "fa-1x");
    //let porcentaje = pintarPantalla('p', '%', 'text');
@@ -23,7 +25,13 @@
  function pintarBotonesExtra(){
   pintarBotonAñadir();
   document.getElementsByClassName("containAñadir")[0].insertBefore(pintarBotonBusqueda(),document.getElementsByTagName('form')[0])
-  
+}
+
+function pintarBotonCancelar(data){
+  let tag = pintarPantalla('icon','','far')
+  tag.classList.add("fa-window-close")
+  tag.id = "cancelar";
+  return tag;
 }
 
 function pintarBotonBusqueda(){
@@ -61,5 +69,6 @@ function pintarBotonAñadir(){
    limpiarPantalla,
    crearLoader,
    pintarBotonesExtra,
+   pintarBotonCancelar,
    getHeight
  }

@@ -58,7 +58,9 @@ button {
   color: #Dcd0c0;
   border: 2px solid #F4F4F4;
   margin: 20px;
-  width: 100%; }
+  width: 100%;
+  height: 150px;
+  justify-content: space-around; }
 
 .boxContainer {
   display: flex;

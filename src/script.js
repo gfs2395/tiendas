@@ -1,14 +1,13 @@
 import * as form from './formulario.js';
-import * as tienda from './tiendas.js';
-import * as pintar from './diseño.js';
 import * as fetch from './fetch.js'
 import * as jquery from './jquery.js'
+import * as XHR from './xhr.js'
+
 var contenedorPadre = document.getElementsByClassName('container')[0];
 var botonesIniciales = document.getElementsByTagName('button');
-var eleccion = "";
+
 const url = "https://webapp-210130211157.azurewebsites.net/webresources/mitienda/"
 
-document.getElementsByClassName("nuevaTienda")[0].addEventListener("click", form.obtenerFormulario)
 
 document.getElementById("nuevaTienda").addEventListener("click", (e) => {
   e.preventDefault();
@@ -16,13 +15,24 @@ document.getElementById("nuevaTienda").addEventListener("click", (e) => {
 
 //al borrar clonar nodo para volver atras?
 
+botonesIniciales[1].addEventListener('click', () => {
+  XHR.getXHR(contenedorPadre,false,url)
+  form.añadirMetodoInsercion(x=>{form.obtenerFormulario(XHR.sendXHR,url)})
 
+})
 botonesIniciales[2].addEventListener('click', () => {
   fetch.getFetch(contenedorPadre,false,url)
+  form.añadirMetodoInsercion(x=>{form.obtenerFormulario(fetch.setFetch,url)})
+
 })
-botonesIniciales[1].addEventListener('click', () => {
+botonesIniciales[3].addEventListener('click', () => {
   jquery.getJquery(contenedorPadre,false,url)
+  form.añadirMetodoInsercion(x=>{form.obtenerFormulario(jquery.postJquery,url)})
+
 })
+
+
+
 
 
 

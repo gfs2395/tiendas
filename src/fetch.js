@@ -11,7 +11,7 @@ function getFetch(contenedorPadre, filtro,url) {
         })
         .then(data => {
             /** Procesar los datos **/
-            tienda.logicaTienda(filtro,data,url)})
+            tienda.logicaTienda(filtro,data,url,x=>{getFetch(contenedorPadre,true,url)})})
 }
 
 function setFetch(data,url) {
@@ -32,7 +32,8 @@ function setFetch(data,url) {
 
     })
     .catch(error => console.error('Error:', error))
-    .then(response =>formulario.exitoAñadir(response));
+    .then(response =>formulario.exitoAñadir(response),console.log("Enviado con Fetch") 
+    );
 }
 
 export {
