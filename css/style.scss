@@ -6,6 +6,16 @@ $Charcoal : #373737;
 $selector : ".formAddx";
 
 @mixin formulario() {}
+@mixin  lighten($color) {
+  background-color: $color;
+}
+
+.lighten{
+  @include lighten(palegreen)
+}
+.darken{
+  @include lighten(mediumseagreen)
+}
 
 i {
   animation: miSpinner 2s infinite linear;

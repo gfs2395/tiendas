@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.lighten {
+  background-color: palegreen; }
+
+.darken {
+  background-color: mediumseagreen; }
+
 i {
   animation: miSpinner 2s infinite linear;
   size: 9px; }

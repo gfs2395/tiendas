@@ -15,6 +15,8 @@ function getFetch(contenedorPadre, filtro,url) {
 }
 
 function setFetch(data,url) {
+    document.getElementById("nuevaTienda").classList.add("darken")
+
     mode: 'no-cors',
     document.getElementById("nuevaTienda").appendChild(pintar.crearLoader(true))
     document.getElementById("nuevaTienda").disabled = true

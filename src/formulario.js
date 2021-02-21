@@ -54,7 +54,10 @@ function manejarFormulario() {
 
     })
     document.getElementsByClassName("containAñadir")[0].style.height = "50px";
+    if(document.getElementById("nuevaTienda").classList==2){
+        document.getElementById("nuevaTienda").classList.remove("lighten");
 
+    }
 }
 
 function eventosUsuarioIconos(accion) {
@@ -78,6 +81,8 @@ function exitoAñadir(response){
     console.log('Success:', response);
     pintar.limpiarPantalla(document.getElementById("nuevaTienda"),document.getElementsByClassName("loader")[0])
     document.getElementById("nuevaTienda").disabled = false;
+    document.getElementById("nuevaTienda").classList.remove("darken")
+    document.getElementById("nuevaTienda").classList.add("lighten")
 }
 
 function añadirMetodoInsercion(func){
