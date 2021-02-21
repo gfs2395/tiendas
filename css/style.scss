@@ -82,6 +82,20 @@ button {
 
 .titulo {
   align-self: center;
+  display: flex;
+  a{
+
+  text-decoration: none;
+  padding: 16px 32px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: white;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 8px rgba(#275efe, 0.32));
+
+  }
 }
 
 /*Pintar dinamicamente siempre con js?si quiero volver para atras que hago un reload?*/
