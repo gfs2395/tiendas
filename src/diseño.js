@@ -2,7 +2,7 @@
    let loader = pintarPantalla('div', '%', 'loader');
    let icono = pintarPantalla('i', '', 'fas');
    !button ? icono.classList.add("fa-spinner", "fa-10x"):icono.classList.add("fa-spinner", "fa-1x");
-   let porcentaje = pintarPantalla('p', '%', 'text');
+   //let porcentaje = pintarPantalla('p', '%', 'text');
    loader.appendChild(icono);
    return loader;
  }

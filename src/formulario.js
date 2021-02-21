@@ -3,6 +3,7 @@ import {
     getFetch
 } from './fetch.js';
 import * as pintar from './diseño.js'
+import * as tienda from './tiendas.js'
 
 function obtenerFormulario() {
     let enviar = true;
@@ -56,10 +57,11 @@ function manejarFormulario() {
 
 }
 
-function eventosUsuarioIconos() {
+function eventosUsuarioIconos(accion) {
     document.getElementsByTagName("icon")[0].addEventListener("click", (e) => {
-        getFetch(document.getElementsByClassName("containAñadir")[0], true)
+        accion();
     })
+    
 
 }
 
@@ -82,10 +84,12 @@ function exitoAñadir(response){
     document.getElementById("nuevaTienda").disabled = false;
 }
 
+
+
 export {
     obtenerFormulario,
     manejarFormulario,
     eventosUsuarioIconos,
     limpiarTiendas,
-    exitoAñadir
+    exitoAñadir,
 }

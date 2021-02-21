@@ -1,11 +1,11 @@
 import {
   crearLoader,
   limpiarPantalla,
-  pintarPantalla
+  pintarPantalla,
+  pintarBotonesExtra
 } from './diseño.js';
-import {limpiarTiendas} from './formulario.js';
-
-
+import {limpiarTiendas,eventosUsuarioIconos,manejarFormulario} from './formulario.js';
+import {getFetch} from './fetch.js';
 let jsonTiendas ;
 
 let boxContainer=document.getElementsByClassName("boxContainer"[0]);
@@ -16,7 +16,6 @@ if(primeraRecarga){
   limpiarPantalla(contenedorPadre, document.getElementsByClassName('loader')[0]);
    boxContainer = pintarPantalla('div', '', 'boxContainer');
    jsonTiendas=JSON.parse(tiendas)
-   console.log("1",typeof(jsonTiendas))
 
 }else{
   limpiarTiendas(document.getElementsByClassName("box"))
@@ -49,7 +48,6 @@ if(primeraRecarga){
 }
 
 
-
 export function esperarTiendas(padre) {
 
   let tag = crearLoader(false);
@@ -65,5 +63,21 @@ export function filtrar(data,id){
   console.log("es",v)
   return v
   //Para filtrar por nombre   let v =newData.filter(e=>console.log(e.idTienda))
+
+}
+
+export function logicaTienda(filtro,data,url){
+  let contenido;
+  if (filtro) {
+      contenido = filtrar(data, document.getElementsByClassName("busquedaInput")[0].value)
+      mostrarTiendas(contenido, document.getElementsByClassName('container')[0], false)
+  } else {
+      pintarBotonesExtra(), mostrarTiendas(data, document.getElementsByClassName('container')[0], true);
+      eventosUsuarioIconos(()=>{ getFetch(document.getElementsByClassName("containAñadir")[0], true,url)})
+      
+        eventosUsuarioIconos();
+        manejarFormulario();
+      
+    }
 
 }
